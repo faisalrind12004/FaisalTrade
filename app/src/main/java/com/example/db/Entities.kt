@@ -70,13 +70,36 @@ data class NotificationEntity(
 data class UserProfileEntity(
   @PrimaryKey
   val id: Int = 1,
-  val name: String = "Valued Customer",
-  val phone: String = "",
-  val defaultAddress: String = "",
+  val name: String = "Muhammad Faisal",
+  val phone: String = "03337803988",
+  val defaultAddress: String = "Shop #4, Main Commercial Wholesale Egg Market",
   val city: String = "Karachi",
-  val loyaltyPoints: Int = 120,
-  val loyaltyTier: String = "Silver Roost",
-  val streakDays: Int = 3,
+  val loyaltyPoints: Int = 280,
+  val loyaltyTier: String = "Gold Trader",
+  val streakDays: Int = 5,
   val lastCheckInDate: String = "",
-  val referralCode: String = "ROZGAR-EGG-77"
+  val referralCode: String = "FAISAL-TRADE-99"
+)
+
+@Entity(tableName = "loyalty_vouchers")
+data class LoyaltyVoucherEntity(
+  @PrimaryKey(autoGenerate = true)
+  val id: Long = 0,
+  val title: String,
+  val description: String,
+  val discountAmount: Double,
+  val pointsCost: Int,
+  val isUsed: Boolean = false,
+  val code: String,
+  val createdAt: Long = System.currentTimeMillis()
+)
+
+@Entity(tableName = "loyalty_history")
+data class LoyaltyHistoryEntity(
+  @PrimaryKey(autoGenerate = true)
+  val id: Long = 0,
+  val reason: String,
+  val pointsChange: Int,
+  val balanceAfter: Int,
+  val timestamp: Long = System.currentTimeMillis()
 )

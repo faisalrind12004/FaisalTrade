@@ -94,3 +94,27 @@ interface UserProfileDao {
   @Query("UPDATE user_profile SET name = :name, phone = :phone, defaultAddress = :address, city = :city WHERE id = 1")
   suspend fun updateContactInfo(name: String, phone: String, address: String, city: String)
 }
+
+@Dao
+interface LoyaltyVoucherDao {
+  @Query("SELECT * FROM loyalty_vouchers ORDER BY createdAt DESC")
+  fun getAllVouchers(): Flow<List<LoyaltyVoucherEntity>>
+
+  @Query("SELECT * FROM loyalty_vouchers WHERE isUsed = 0 ORDER BY createdAt DESC")
+  fun getActiveVouchers(): Flow<List<LoyaltyVoucherEntity>>
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  suspend fun insertVoucher(voucher: LoyaltyVoucherEntity): Long
+
+  @Query("UPDATE loyalty_vouchers SET isUsed = 1 WHERE id = :id")
+  suspend fun markVoucherUsed(id: Long)
+}
+
+@Dao
+interface LoyaltyHistoryDao {
+  @Query("SELECT * FROM loyalty_history ORDER BY timestamp DESC")
+  fun getAllHistory(): Flow<List<LoyaltyHistoryEntity>>
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  suspend fun insertHistory(item: LoyaltyHistoryEntity): Long
+}

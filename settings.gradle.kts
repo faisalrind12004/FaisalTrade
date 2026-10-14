@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Rozgar Egg Point"
+rootProject.name = "Faisal Trade"
 
 include(":app")

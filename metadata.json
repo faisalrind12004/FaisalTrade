@@ -1,6 +1,6 @@
 {
-  "name": "Rozgar Egg Point",
-  "description": "Order fresh farm and organic eggs online with express home delivery, live order tracking, easy payment verification, and loyalty rewards.",
+  "name": "Faisal Trade",
+  "description": "Faisal Trade (faisaltradez) - Online fresh egg trading and home delivery platform with real-time tracking, loyalty points rewards, and secure payment verification.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
