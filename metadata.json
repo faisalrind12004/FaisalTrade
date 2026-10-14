@@ -1,0 +1,6 @@
+{
+  "name": "Rozgar Egg Point",
+  "description": "Order fresh farm and organic eggs online with express home delivery, live order tracking, easy payment verification, and loyalty rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
